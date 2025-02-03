@@ -49,6 +49,9 @@ const postStore = usePostStore2()
 const countVal = toRef(useCounterStore, 'count')
 
 provide('useCounterStore', counter)
+const store = useCounterStore()
+store.secret // 'the cake is a lie'
+console.log(store)
 
 const userInput = reactive({
   name: 'John Doe',
