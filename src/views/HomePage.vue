@@ -22,8 +22,8 @@
   <div>
     <h1>This is the Counter1 from View</h1>
     <Counter1 :count="count" />
-    <button @click="icrementCounter">Increment</button>
-    <button @click="DecrementCounter">Decrement</button>
+    <!-- <button @click="useCounterStore.increment">Increment</button>
+    <button @click="useCounterStore.decrement">Decrement</button> -->
   </div>
 </template>
 
