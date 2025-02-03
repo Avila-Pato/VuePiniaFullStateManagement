@@ -34,6 +34,26 @@ pinia.use(({ store }) => {
   }
 })
 
+// esta seccion se ejecutara cuando se monte el pinia en la app
+pinia.use(({ store }) => {
+  store.$subscribe((mutable, state) => {
+    console.log('cambios occurridos en el almacén', store.$id)
+    console.log('esto es una mutation', mutable)
+    console.log('esto es el state', state)
+    // reacciona a cambios del almacén
+  })
+  store.$onAction((name, args, after, onError) => {
+    console.log('rste es el nombre de la funcion', name, 'y los args son', args)
+    // reacciona a acciones del almacén
+    after(() => {
+      console.log('se ha ejecutado la accion', name)
+    })
+    onError((error) => {
+      console.log('ha ocurrido un error', error)
+    })
+  })
+})
+
 app.use(pinia)
 pinia.use(SecretPiniaPlugin)
 
