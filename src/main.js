@@ -2,6 +2,7 @@
 
 import { createApp, toRef } from 'vue'
 import { createPinia } from 'pinia'
+import './assets/index.css'
 
 import App from './App.vue'
 import router from './router'
@@ -10,7 +11,7 @@ import { SecretPiniaPlugin } from './stores/plugin/SecretPiniaPlugin'
 const app = createApp(App)
 
 const pinia = createPinia()
-
+pinia.use(SecretPiniaPlugin) // Agregar plugin antes de usarlo
 pinia.use(({ store }) => {
   store.message = 'hello world'
 

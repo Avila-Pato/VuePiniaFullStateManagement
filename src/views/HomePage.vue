@@ -21,6 +21,7 @@
 
   <br />
   <br />
+  <h1 class="text-3xl font-bold bg-blue-500 underline">Hello world!</h1>
   <br />
   <br />
   <div>
@@ -46,12 +47,10 @@ import Counter1 from '../views/components/Counter1.vue'
 const counter = useCounterStore()
 const postStore = usePostStore2()
 
-const countVal = toRef(useCounterStore, 'count')
+const countVal = toRef(counter, 'count')
+console.log(counter.secret)
 
 provide('useCounterStore', counter)
-const store = useCounterStore()
-store.secret // 'the cake is a lie'
-console.log(store)
 
 const userInput = reactive({
   name: 'John Doe',
