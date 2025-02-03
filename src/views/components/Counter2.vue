@@ -1,31 +1,16 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
-// Define props with validation
-const props = defineProps({
-  count: {
-    type: Number,
-    required: true,
-  },
-})
+import { inject } from 'vue'
 
-// Define emits for increment and decrement actions
-const emit = defineEmits(['increment', 'decrement'])
-
-// Increment and decrement functions
-function incrementCounter() {
-  emit('increment')
-}
-
-function decrementCounter() {
-  emit('decrement')
-}
+const useCounterStore = inject('useCounterStore')
 </script>
 
 <template>
   <div>
     <h1>This is the Counter 2</h1>
-    <p>Counter (from props): {{ props.count }}</p>
-    <button @click="incrementCounter">Increment</button>
-    <button @click="decrementCounter">Decrement</button>
+    <p>Counter: {{ useCounterStore.count }}</p>
+
+    <button @click="useCounterStore.increment">Increment</button>
+    <button @click="useCounterStore.decrement">Decrement</button>
   </div>
 </template>

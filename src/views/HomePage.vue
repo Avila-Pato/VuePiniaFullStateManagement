@@ -21,20 +21,22 @@
   <br />
   <div>
     <h1>This is the Counter1 from View</h1>
-    <Counter1 :count="count" />
+    <Counter1 />
     <!-- <button @click="useCounterStore.increment">Increment</button>
     <button @click="useCounterStore.decrement">Decrement</button> -->
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, provide } from 'vue'
 import { useCounterStore } from '../stores/counter'
 import { usePostStore2 } from '../stores/post2'
 import Counter1 from '../views/components/Counter1.vue'
 
 const counter = useCounterStore()
 const postStore = usePostStore2()
+
+provide('useCounterStore', counter)
 
 function icrementCounter() {
   counter.increment()

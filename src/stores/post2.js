@@ -17,7 +17,7 @@ export const usePostStore2 = defineStore('posts2', () => {
   }
   async function fetchPostData() {
     try {
-      const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0')
+      const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=2&offset=0')
       const data = await response.json()
 
       // Agregar un ID a cada Pokémon extrayéndolo del URL
